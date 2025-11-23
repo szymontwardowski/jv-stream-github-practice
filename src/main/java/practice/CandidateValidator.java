@@ -1,12 +1,9 @@
 package practice;
 
+import java.util.function.Predicate;
 import model.Candidate;
 
-import java.util.function.Predicate;
-
-
 public class CandidateValidator implements Predicate<Candidate> {
-
 
     private static long calculateYears(String periodsInUkr) {
         String[] years = periodsInUkr.split("-");
