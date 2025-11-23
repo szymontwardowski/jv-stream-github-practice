@@ -47,7 +47,7 @@ public class StreamPractice {
                     }
                     return value;
                 })
-                .filter(i -> i % 2 == 1)
+                .filter(i -> i % 2 !=0)
                 .average()
                 .orElseThrow(NoSuchElementException::new);
     }
