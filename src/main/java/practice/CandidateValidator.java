@@ -5,13 +5,16 @@ import java.util.function.Predicate;
 import model.Candidate;
 
 public class CandidateValidator implements Predicate<Candidate> {
+    private static final int REQUIRED_AGE = 35;
+    private static final String REQUIRED_NATIONALITY = "Ukrainian";
+    private static final long REQUIRED_PERIODS_IN_UKR = 10;
 
     @Override
     public boolean test(Candidate candidate) {
 
-        boolean meetsBasicRequirements = candidate.getAge() >= 35
+        boolean meetsBasicRequirements = candidate.getAge() >= REQUIRED_AGE
                 && candidate.isAllowedToVote()
-                && candidate.getNationality().equals("Ukrainian");
+                && candidate.getNationality().equals(REQUIRED_NATIONALITY);
 
         if (!meetsBasicRequirements) {
             return false;
@@ -33,6 +36,7 @@ public class CandidateValidator implements Predicate<Candidate> {
                     }
                 })
                 .sum();
-        return totalYears >= 10;
+
+        return totalYears >= REQUIRED_PERIODS_IN_UKR;
     }
 }
